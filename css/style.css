@@ -1,0 +1,156 @@
+/* =========================
+   SKYBLOOM BRAND VARIABLES
+   ========================= */
+
+:root {
+    --midnight: #0B1633;
+    --sky-blue: #4F9CF9;
+    --cloud: #F7F7F3;
+    --mist: #EAF3FB;
+    --bloom: #C989A5;
+    --charcoal: #1C2333;
+    --soft-gray: #6F7787;
+}
+
+
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--cloud);
+    color: var(--charcoal);
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.skybloom-navbar {
+    min-height: 88px;
+    background: rgba(247, 247, 243, 0.96);
+    border-bottom: 1px solid rgba(11, 22, 51, 0.08);
+}
+
+
+/* Brand */
+
+.skybloom-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 1.65rem;
+
+    color: var(--midnight);
+    text-decoration: none;
+}
+
+.skybloom-brand:hover {
+    color: var(--midnight);
+}
+
+.brand-mark {
+    color: var(--sky-blue);
+    font-size: 1rem;
+}
+
+.skybloom-brand small {
+    margin-left: 2px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+    color: var(--soft-gray);
+}
+
+
+/* Navigation links */
+
+.skybloom-navbar .nav-link {
+    position: relative;
+
+    margin: 0 8px;
+    padding: 10px 4px;
+
+    font-size: 0.92rem;
+    font-weight: 500;
+
+    color: var(--charcoal);
+    transition: color 0.3s ease;
+}
+
+.skybloom-navbar .nav-link:hover,
+.skybloom-navbar .nav-link.active {
+    color: var(--sky-blue);
+}
+
+
+/* Small animated line under normal nav links */
+
+.skybloom-navbar .nav-link:not(.nav-contact)::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+
+    width: 0;
+    height: 1px;
+
+    background-color: var(--sky-blue);
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.skybloom-navbar .nav-link:not(.nav-contact):hover::after,
+.skybloom-navbar .nav-link.active:not(.nav-contact)::after {
+    width: 100%;
+}
+
+
+/* Main navigation CTA */
+
+.skybloom-navbar .nav-contact {
+    margin-left: 18px;
+    padding: 11px 20px;
+
+    border: 1px solid var(--midnight);
+    border-radius: 30px;
+
+    color: var(--midnight);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.skybloom-navbar .nav-contact span {
+    display: inline-block;
+    margin-left: 6px;
+
+    transition: transform 0.3s ease;
+}
+
+.skybloom-navbar .nav-contact:hover {
+    background-color: var(--midnight);
+    color: var(--cloud);
+
+    transform: translateY(-1px);
+}
+
+.skybloom-navbar .nav-contact:hover span {
+    transform: translateX(4px);
+}
