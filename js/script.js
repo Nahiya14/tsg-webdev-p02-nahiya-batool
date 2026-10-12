@@ -106,3 +106,37 @@ faqItems.forEach(function (item) {
         }
     });
 });
+
+// Close mobile navigation when clicking outside
+
+const mobileNavigation = document.getElementById("mainNavigation");
+const navbar = document.querySelector(".skybloom-navbar");
+
+document.addEventListener("click", function (event) {
+    const menuIsOpen = mobileNavigation.classList.contains("show");
+
+    if (
+        menuIsOpen &&
+        !navbar.contains(event.target)
+    ) {
+        const collapse = bootstrap.Collapse.getOrCreateInstance(
+            mobileNavigation,
+            { toggle: false }
+        );
+
+        collapse.hide();
+    }
+});
+
+document.querySelectorAll("#mainNavigation .nav-link").forEach(function (link) {
+    link.addEventListener("click", function () {
+        if (window.innerWidth < 992) {
+            const collapse = bootstrap.Collapse.getOrCreateInstance(
+                mobileNavigation,
+                { toggle: false }
+            );
+
+            collapse.hide();
+        }
+    });
+});
